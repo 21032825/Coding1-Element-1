@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>window.onerror = function(error, url, line) {parent.postMessage(["console", "❌ -- [ERROR] -- ❌ -- ⚠️ " + error], "*")};var cl = console.log;console.log = function () {var msg = [...arguments].join();parent.postMessage(["console", msg], "*");  }  </script><script src = "https://mimicproject.com/libs/maximilian.js">
+</script>
+   <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet"> 
+<script crossorigin src = "https://rawgit.com/nexus-js/ui/master/dist/NexusUI.js">
+ 
+</script>
+  <link rel="stylesheet" href="styleCSS" />
+
+<body>
+ 
+  
+    <!-- The Canvas tag sets up a screen in the browser that we can draw to. -->
+    <canvas></canvas>
+     
+    <script language="javascript" type="text/javascript">
+     
+      
+     document.body.style.backgroundColor = 'black';
+        // This is where we are going to store the mouse information
+        var mouseX =50;
+        var mouseY =70;
+      // We really need this
+        var TWO_PI = Math.PI * 2;
+
+        // This gets a reference to the canvas in the browser
+
+        var canvas = document.querySelector("canvas");
+      
+
+        // This sets the width and height to the document window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        // Be aware that when you resize the window, you will need to call (do) this again
+
+        // This creates a 2d drawing 'context' in your canvas
+        // All your drawing will be done in this canvas
+        var context = canvas.getContext("2d");
+
+        //This tells the browser to get the mouse information from the function we've called getMouse
+        canvas.addEventListener('mousemove', getMouse, false);
+
+        //here's our function 'getMouse'.
+        function getMouse(mousePosition) {
+                mouseX = mousePosition.layerX;
+                mouseY = mousePosition.layerY;
+        }
+      
+        
+        // This function translates the canvas so that we're looking at it from a different position, meaning that 0,0 is somewhere else
+      function draw() {
+            
+	   	var segments = 500;
+		 var spacing = TWO_PI / segments;
+		 var radius = 120;
+
+      var segments1 = 2000;
+      var spacing1 = TWO_PI / segments;
+		 var radius1 = 250;
+          
+      var segments2 = 800;
+      var spacing2 = TWO_PI / segments;
+		 var radius2 = 200;
+          
+      var segments3 = 600;
+      var spacing3 = TWO_PI / segments;
+		 var radius3 = 270;
+          
+      var segments4 = 150;
+      var spacing4 = TWO_PI / segments;
+		 var radius4 = 150;
+       
+      var segments5 = 150;
+      var spacing5 = TWO_PI / segments;
+		 var radius5 = 350;
+        
+      var segments6 = 150;
+      var spacing6 = TWO_PI / segments;
+		 var radius6 = 450;
+        
+      var penSize = 0.1;
+      var penSize1 = 1;
+      var positionX = 200             //clear the screen
+      
+		context.clearRect(0,0, canvas.width, canvas.height);
+
+            //draw circles
+
+		context.beginPath();
+
+		for (var i = 0; i < segments; i++) {
+
+		var x = Math.cos(spacing * i * (mouseX/5)) * Math.sin(spacing * i * (mouseY/30)) * radius;
+       
+        if(20>x>=0){
+        context.strokeStyle = "#58BA19"; context.lineCap="square";}
+          
+        var y = Math.sin(spacing * i* (mouseX/5)) * Math.sin(spacing * i * (mouseY/5)) * radius;  
+        if(y<=20){
+        context.strokeStyle = "#5D7BD1"; context.lineWidth=0.2;}
+	     context.lineTo(x+30+radius,y+50+radius,penSize); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+          
+
+         for (var i1 = 0; i1 < segments1; i1++) {
+
+		var x1 = Math.sin(spacing * i1 * (mouseX/10)) * Math.sin(spacing * i1 * (mouseY/40)) * radius1;
+       
+        if(20>x1>=0){
+        context.strokeStyle = "#E0A1E5"; context.lineCap="square";}
+          
+        var y1 = Math.sin(spacing * i1 * (mouseX/10)) * Math.cos(spacing * i1 * (mouseY/40)) * radius1;  
+        if(y1<=20){
+        context.strokeStyle = "#00FFCE"; context.lineWidth=0.2;}
+	     context.lineTo(x1+150+radius1,y1+130+radius1,penSize); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+        
+        
+         for (var i2 = 0; i2 < segments2; i2++) {
+
+		var x2 = Math.sin(spacing * i2 * (mouseX/20)) * Math.sin(spacing * i2 * (mouseY/40)) * radius2;
+       
+        if(10>x2>=0){
+        context.strokeStyle = "#CBF90B"; context.lineCap="square";}
+          
+        var y2 = Math.sin(spacing * i2 * (mouseX/20)) * Math.sin(spacing * i2 * (mouseY/60)) * radius2;  
+        if(y2<=10){
+        context.strokeStyle = "#E2D774"; context.lineWidth=0.5;}
+	     context.lineTo(x2+500+radius2,y2+80+radius2,penSize1); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+        
+        
+         for (var i3 = 0; i3 < segments3; i3++) {
+
+		var x3 = Math.sin(spacing * i3 * (mouseX/5)) * Math.cos(spacing * i3 * (mouseY/20)) * radius3;
+       
+        if(20>x3>=0){
+        context.strokeStyle = "#7391E5"; context.lineCap="square";}
+          
+        var y3 = Math.sin(spacing * i3 * (mouseX/5)) * Math.sin(spacing * i3 * (mouseY/20)) * radius3;  
+        if(y3<=20){
+        context.strokeStyle = "#DDE573"; context.lineWidth=0.3;}
+	     context.lineTo(x3-200+radius3,y3+400+radius3,penSize1); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+        
+        
+         for (var i4 = 4; i4 < segments4; i4++) {
+
+		var x4 = Math.sin(spacing * i4 * (mouseX/2)) * Math.cos(spacing * i4 * (mouseY/30)) * radius4;
+       
+        if(10>x4>=0){
+        context.strokeStyle = "#7391E5"; context.lineCap="square";}
+          
+        var y4 = Math.cos(spacing * i4 * (mouseX/2)) * Math.sin(spacing * i4 * (mouseY/30)) * radius4;  
+        if(y4<=10){
+        context.strokeStyle = "#FF7300"; context.lineWidth=0.3;}
+	     context.lineTo(x4+400+radius3,y4+500+radius4,penSize1); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+        
+        
+        for (var i5 = 0; i5 < segments; i5++) {
+
+		   var x5 = Math.sin(spacing * i5 * (mouseX/10)) * Math.cos(spacing * i5 * (mouseY/30)) * radius5;
+       
+        if(20>x5>=0){
+        context.strokeStyle = "#58BA19"; context.lineCap="square";}
+          
+        var y5 = Math.sin(spacing * i5 * (mouseX/10)) * Math.sin(spacing * i5 * (mouseY/30)) * radius5;  
+        if(y5<=20){
+        context.strokeStyle = "#DB215B"; context.lineWidth=0.2;}
+	     context.lineTo(x5+800+radius5,y5+100+radius5,penSize); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+          
+        
+        for (var i6 = 0; i6 < segments; i6++) {
+
+		   var x6 = Math.cos(spacing * i6 * (mouseX/10)) * Math.cos(spacing * i6 * (mouseY/30)) * radius6;
+       
+        if(20>x6>=0){
+        context.strokeStyle = "#E1E539"; context.lineCap="square";}
+          
+        var y6 = Math.sin(spacing * i6 * (mouseX/10)) * Math.sin(spacing * i6 * (mouseY/30)) * radius6;  
+        if(y6<=20){
+        context.strokeStyle = "#F96500"; context.lineWidth=0.2;}
+	     context.lineTo(x6+1150+radius5,y6+350+radius6,penSize1); 
+            }
+
+         context.stroke(); 		
+         context.closePath();
+         context.beginPath();
+           			requestAnimationFrame(draw);
+        }
+
+        //request the first animation frame
+        requestAnimationFrame(draw);
+        //the end.
+      
+      
+const ctx = canvas.getContext('2d');
+const mouse = {};
+// Move mouse to add new particles to the array
+function addNewParticles(g) {
+	mouse.x = g.x;
+	mouse.y = g.y;
+	Array.apply(null, {length:2}).forEach(() => {
+		particlesArray.push(new Particle());
+	});
+}
+canvas.addEventListener('mousemove', addNewParticles);
+
+const particlesArray = [];
+class Particle {
+	constructor() {
+		this.x = mouse.x;
+		this.y = mouse.y;
+		this.size = Math.random() * 7+ 1;
+		this.speedX = Math.random() * 4 + 1; // Set the speed to -0.5 ~ 0.5
+		this.speedY = Math.random() * 4 + 1;
+	}
+	update() {
+		this.size -= 0.1; // The particle radius gets smaller
+		this.x += this.speedX; // Update the coordinate of the particle
+		this.y += this.speedY;
+	}
+	draw() {
+     
+		ctx.beginPath();
+		ctx.fillStyle = 'hsl('+ Math.random()*300+',80%,50%)';
+		ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+		ctx.fill();
+		ctx.closePath();
+	}
+}
+function handleParticles() {
+ 
+	for (let i = 0; i < particlesArray.length; i++) {
+		particlesArray[i].update();
+		particlesArray[i].draw();
+		// Calculate the distance between the newly generated particle and the previous one
+		for (let j = i + 1; j < particlesArray.length; j++) {
+			const dx = particlesArray[i].x - particlesArray[j].x;
+			const dy = particlesArray[i].y - particlesArray[j].y;
+			const distance = Math.sqrt(dx * dx + dy * dy); 
+			if (distance < 30) {
+				
+				ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+				ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+				ctx.stroke();
+				ctx.closePath();
+			}
+		}
+		if (particlesArray[i].size <= 0.1) {
+			particlesArray.splice(i, 1);
+			i--;//Delete the particles which are too small
+		}
+	}
+}
+function animate() {
+	handleParticles();
+	requestAnimationFrame(animate);
+}
+animate();
+      
+      let maxi = maximilian();
+      let audio = new maxi.maxiAudio();
+      let myOsc = new maxi.maxiOsc();
+      let mySample = new maxi.maxiSample();
+     
+      
+      audio.init();
+      audio.loadSample('yanhua1.mp3', mySample);
+     
+      audio.play = function(){
+        
+        var out = mySample.play();
+        
+        return out;
+      }
+
+
+   
+</script>
+
+</body>
+
